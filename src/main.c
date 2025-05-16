@@ -10,6 +10,7 @@
 #include "argsparse.h"
 
 int main(int argc, char **argv) {
+  printf("Hello Enzo\n");
   /*To use debug mode: 
    - add --debug: freud.exe --debug -f images/input/image.jpeg
    or 
