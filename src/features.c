@@ -1,4 +1,6 @@
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <stddef.h>
 
 void dimension(char *source_path) {
     int width, height, channel_count;
