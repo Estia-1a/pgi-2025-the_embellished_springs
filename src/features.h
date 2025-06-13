@@ -1,7 +1,3 @@
-#ifndef FEATURES_H
-#define FEATURES_H
 
 
-void first_pixel(char *source_path);
-
-#endif
+void dimension(char *source_path);

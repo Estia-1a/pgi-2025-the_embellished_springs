@@ -1,36 +1,19 @@
-#include <estia-image.h>
-#include <stdio.h>
-#include "features.h"
-#include "utils.h"
-#include <stdlib.h>
-#include <stdio.h>
 
 
-void first_pixel(char *source_path)
-{
-    // Variables pour stocker les données de l'image
-    unsigned char *data;
+void dimension(char *source_path) {
     int width, height, channel_count;
+    unsigned char *data;
     
-    // Lire l'image (cette fonction existe déjà dans votre projet)
-    int result = read_image_data(source_path, &data, &width, &height, &channel_count);
+    // Utiliser read_image_data pour obtenir les dimensions
+    data = read_image_data(source_path, &width, &height, &channel_count);
     
-    // Vérifier si l'image a été correctement chargée
-    if (result != 0 || data == NULL)
-    {
-        printf("Erreur: Impossible de charger l'image %s\n", source_path);
-        return;
+    if (data == NULL) {
+        return; // Erreur de chargement
     }
     
-    // Le premier pixel = les 3 premiers nombres dans le tableau
-    // data[0] = Rouge, data[1] = Vert, data[2] = Bleu
-    unsigned char rouge = data[0];
-    unsigned char vert = data[1];
-    unsigned char bleu = data[2];
+    // Afficher le format requis
+    printf("dimension: %d, %d\n", width, height);
     
-    // Afficher le résultat
-    printf("first_pixel: %d, %d, %d\n", rouge, vert, bleu);
-    
-    // Libérer la mémoire (très important !)
+    // Libérer la mémoire
     free(data);
 }
