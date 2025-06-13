@@ -2,35 +2,35 @@
 #include <stdio.h>
 #include "features.h"
 #include "utils.h"
+#include <stdlib.h>
+#include <stdio.h>
+
 
 void first_pixel(char *source_path)
 {
-    // Variables to store image data
+    // Variables pour stocker les données de l'image
     unsigned char *data;
     int width, height, channel_count;
     
-    // Read the image data using the provided function
+    // Lire l'image (cette fonction existe déjà dans votre projet)
     int result = read_image_data(source_path, &data, &width, &height, &channel_count);
     
-    // Check if image was successfully loaded
+    // Vérifier si l'image a été correctement chargée
     if (result != 0 || data == NULL)
     {
-        printf("Error: Could not load image %s\n", source_path);
+        printf("Erreur: Impossible de charger l'image %s\n", source_path);
         return;
     }
     
-    // The first pixel is at position (0,0) which corresponds to the first 3 bytes
-    // in the data array (assuming RGB format)
-    // data[0] = Red component
-    // data[1] = Green component  
-    // data[2] = Blue component
-    unsigned char r = data[0];
-    unsigned char g = data[1];
-    unsigned char b = data[2];
+    // Le premier pixel = les 3 premiers nombres dans le tableau
+    // data[0] = Rouge, data[1] = Vert, data[2] = Bleu
+    unsigned char rouge = data[0];
+    unsigned char vert = data[1];
+    unsigned char bleu = data[2];
     
-    // Print the RGB values in the required format
-    printf("first_pixel: %d, %d, %d\n", r, g, b);
+    // Afficher le résultat
+    printf("first_pixel: %d, %d, %d\n", rouge, vert, bleu);
     
-    // Free the allocated memory for image data
+    // Libérer la mémoire (très important !)
     free(data);
 }
