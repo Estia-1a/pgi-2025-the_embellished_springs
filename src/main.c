@@ -46,6 +46,10 @@ if ( strncmp( configuration.command, "mirror_horizontal", 17 ) == 0 ) {
     mirror_horizontal(configuration.filenames[0]);
 }
 
+if ( strncmp( configuration.command, "color_gray", 10 ) == 0 ) { 
+    color_gray(configuration.filenames[0]);
+}
+
 if ( strncmp( configuration.command, "color_blue", 10 ) == 0 ) { 
     color_blue(configuration.filenames[0]);
 }
