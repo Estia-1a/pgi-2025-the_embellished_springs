@@ -11,4 +11,4 @@ void color_blue(char* source_path)
 void min_component(char *source_path, char component)
 void color_green(char* source_path)
 void rotate_cw(char *source_path)
-
+void color_red(char* source_path)
