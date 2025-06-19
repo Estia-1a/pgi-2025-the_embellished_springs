@@ -409,3 +409,35 @@ void min_pixel(char *source_path){
 
     printf("min_pixel (%d, %d): %d, %d, %d", min_x, min_y, min_R, min_G, min_B);
 }
+
+void rogner_haut (char* source_path) {
+    int width, height, nbChannels ;
+    unsigned char* source_data ;
+    read_image_data(source_path, &source_data, &width, &height, &nbChannels);
+    unsigned char* target_data = (unsigned char*)malloc(3*(height)*(width));
+    int i=0;
+    int j=(3*(width)*(height))/4;
+    while (i<j) {
+        target_data[i]=source_data[i];
+        target_data[i+1]=source_data[i+1];
+        target_data[i+2]=source_data[i+2];
+        i=i+3;
+    }
+    write_image_data("image_out.bmp", target_data, width, height/4);
+}
+ 
+void rogner_bas (char* source_path) {
+    int width, height, nbChannels;
+    unsigned char* source_data;
+    read_image_data(source_path, &source_data, &width, &height, &nbChannels);
+    unsigned char* target_data = (unsigned char *)malloc(3*(height)*(width));
+    int i = (3*(width)*(height)) - (3*(width)*(height))/4 ;
+    int j = (3*(width)*(height)) ;
+    while (i<j) {
+        target_data[i] = source_data[i];
+        target_data[i+1] = source_data[i+1];
+        target_data[i+2] = source_data[i+2];
+        i = i+3;
+    }
+    write_image_data("image_out.bmp", target_data, width, height/4);
+}
