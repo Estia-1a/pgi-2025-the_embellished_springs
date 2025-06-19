@@ -264,3 +264,47 @@ void color_red(char* source_path){
     }
     write_image_data("image_out.bmp", data, width, height);
 }
+
+void max_component(char *source_path, char component) {
+    int width, height, nbChannels;
+    unsigned char *data;
+
+    if (read_image_data(source_path, &data, &width, &height, &nbChannels)) {
+        int max_component_value = 0;
+        int max_x = 0;
+        int max_y = 0;
+
+        int y, x;
+        for (y = 0; y < height; y++) {
+            for (x = 0; x < width; x++) {
+                int pixel_index = (y * width + x) * nbChannels;
+                int R = data[pixel_index];
+                int G = data[pixel_index + 1];
+                int B = data[pixel_index + 2];
+                int component_value;
+
+                if (component == 'R' || component == 'r') {
+                    component_value = R;
+                } else if (component == 'G' || component == 'g') {
+                    component_value = G;
+                } else if (component == 'B' || component == 'b') {
+                    component_value = B;
+                } else {
+                    printf("Option de composante invalide.\n");
+                    return;
+                }
+                if (component_value > max_component_value) {
+                    max_component_value = component_value;
+                    max_x = x;
+                    max_y = y;
+                }
+            }
+        }
+        int max_pixel_index = (max_y * width + max_x) * nbChannels;
+        int max_R = data[max_pixel_index];
+        int max_G = data[max_pixel_index + 1];
+        int max_B = data[max_pixel_index + 2];
+
+        printf("max_component %c (%d, %d): %d\n", component, max_x, max_y, max_component_value);
+    }
+}
