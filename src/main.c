@@ -85,3 +85,7 @@ if ( strncmp( configuration.command, "max_pixel", 9 ) == 0 ) {
 if ( strncmp( configuration.command, "rogner_milieu_bas", 17 ) == 0 ) { 
     rogner_milieu_bas(configuration.filenames[0]);
 }
+
+if ( strncmp( configuration.command, "min_pixel", 9 ) == 0 ) { 
+    min_pixel(configuration.filenames[0]);
+}
