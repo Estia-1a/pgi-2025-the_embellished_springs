@@ -58,6 +58,6 @@ if ( strncmp( configuration.command, "min_component", 13 ) == 0 ) {
     min_component(configuration.filenames[0]);
 }
 
-if ( strncmp( configuration.command, "min_component", 13 ) == 0 ) { 
-    min_component(configuration.filenames[0]);
+if ( strncmp( configuration.command, "color_green", 11 ) == 0 ) { 
+    color_green(configuration.filenames[0]);
 }
