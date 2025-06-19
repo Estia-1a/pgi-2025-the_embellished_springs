@@ -73,3 +73,7 @@ if ( strncmp( configuration.command, "color_red", 9 ) == 0 ) {
 if ( strncmp( configuration.command, "max_component", 13 ) == 0 ) { 
     max_component(configuration.filenames[0]);
 }
+
+if ( strncmp( configuration.command, "rogner_milieu_haut", 18 ) == 0 ) { 
+    rogner_milieu_haut(configuration.filenames[0]);
+}
