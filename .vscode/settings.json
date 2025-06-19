@@ -13,4 +13,7 @@
     "files.associations": {
         "unistd.h": "c"
     },
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "main"
+    ],
 }
