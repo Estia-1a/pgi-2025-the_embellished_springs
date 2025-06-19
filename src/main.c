@@ -18,3 +18,15 @@ int main(int argc, char **argv) {
    */
  
   /*DO NOT EDIT THIS PART*/
+Config configuration ;
+  parse_arguments( argc, argv, &configuration ) ;
+  check_debug_mode(configuration);
+  check_file();
+  if ( strncmp( configuration.command, "helloworld", 10 ) == 0 ) {
+    /* helloworld() function is defined in feature.h and implemented in feature.c */
+    helloWorld();
+  }
+if ( strncmp( configuration.command, "color_invert", 12 ) == 0 ) { 
+    color_invert(configuration.filenames[0]);
+  }
+}
