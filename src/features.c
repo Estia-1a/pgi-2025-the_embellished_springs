@@ -50,3 +50,19 @@ void mirror_horizontal(char* source_path) {
     write_image_data("image_out.bmp", data, width, height);
     free(data);
 }
+
+void color_blue(char* source_path) {
+    int width, height, nbChannels;
+    unsigned char *data;
+    read_image_data(source_path, &data, &width, &height, &nbChannels);
+    
+    int y, x;
+    for (y = 0; y < height; y++) {
+        for (x = 0; x < width; x++) {
+            data[y * width * 3 + x * 3] = 0;  
+            data[y * width * 3 + x * 3 + 1] = 0;  
+        }
+    }
+    
+    write_image_data("image_out.bmp", data, width, height);
+}
