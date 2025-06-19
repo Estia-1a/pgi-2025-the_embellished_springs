@@ -358,3 +358,19 @@ void max_pixel(char *source_path){
 
     printf("max_pixel (%d, %d): %d, %d, %d", max_x, max_y, max_R, max_G, max_B);
 }
+
+void rogner_milieu_bas (char* source_path) {
+    int width, height, nbChannels;
+    unsigned char* source_data;
+    read_image_data(source_path, &source_data, &width, &height, &nbChannels);
+    unsigned char* target_data = (unsigned char *)malloc(3*(height)*(width));
+    int i = (3*(width)*(height))/2 ;
+    int j = (3*(width)*(height)) - (3*(width)*(height))/4 ;
+    while (i<j) {
+        target_data[i] = source_data[i];
+        target_data[i+1] = source_data[i+1];
+        target_data[i+2] = source_data[i+2];
+        i = i+3;
+    }
+    write_image_data("image_out.bmp", target_data, width, height/4);
+}
