@@ -121,3 +121,83 @@ void color_gray(char* source_path) {
     write_image_data("image_out.bmp", data, width, height);
 }
 
+void color_blue(char* source_path) {
+    int width, height, nbChannels;
+    unsigned char *data;
+    read_image_data(source_path, &data, &width, &height, &nbChannels);
+    
+    int y, x;
+    for (y = 0; y < height; y++) {
+        for (x = 0; x < width; x++) {
+            data[y * width * 3 + x * 3] = 0;  
+            data[y * width * 3 + x * 3 + 1] = 0;  
+        }
+    }
+    
+    write_image_data("image_out.bmp", data, width, height);
+}
+
+void mirror_horizontal(char* source_path) {
+    int width, height, nbChannels;
+    unsigned char *data;
+    read_image_data(source_path, &data, &width, &height, &nbChannels);
+    
+    int y, x, c;
+    unsigned char temp;
+    for (y = 0; y < height; y++) {
+        for (x = 0; x < width / 2; x++) {
+            for (c = 0; c < nbChannels; c++) {
+                temp = data[y * width * nbChannels + x * nbChannels + c];
+                data[y * width * nbChannels + x * nbChannels + c] = data[y * width * nbChannels + (width - x - 1) * nbChannels + c];
+                data[y * width * nbChannels + (width - x - 1) * nbChannels + c] = temp;
+            }
+        }
+    }
+    
+    write_image_data("image_out.bmp", data, width, height);
+    free(data);
+}
+
+void min_component(char *source_path, char component) {
+    int width, height, nbChannels;
+    unsigned char *data;
+
+    if (read_image_data(source_path, &data, &width, &height, &nbChannels)) {
+        int min_component_value = 765;
+        int min_x = 0;
+        int min_y = 0;
+
+        int y, x;
+        for (y = 0; y < height; y++) {
+            for (x = 0; x < width; x++) {
+                int pixel_index = (y * width + x) * nbChannels;
+                int R = data[pixel_index];
+                int G = data[pixel_index + 1];
+                int B = data[pixel_index + 2];
+                int component_value;
+
+                if (component == 'R' || component == 'r') {
+                    component_value = R;
+                } else if (component == 'G' || component == 'g') {
+                    component_value = G;
+                } else if (component == 'B' || component == 'b') {
+                    component_value = B;
+                } else {
+                    printf("Option de composante invalide.\n");
+                    return;
+                }
+                if (component_value < min_component_value) {
+                    min_component_value = component_value;
+                    min_x = x;
+                    min_y = y;
+                }
+            }
+        }
+        int min_pixel_index = (min_y * width + min_x) * nbChannels;
+        int min_R = data[min_pixel_index];
+        int min_G = data[min_pixel_index + 1];
+        int min_B = data[min_pixel_index + 2];
+
+        printf("min_component %c (%d, %d): %d\n", component, min_x, min_y, min_component_value);
+    }
+}
