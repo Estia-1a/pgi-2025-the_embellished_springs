@@ -1,1 +1,11 @@
 helloworld
+color_invert
+color_desaturate
+color_gray_luminance
+mirror_vertical
+mirror_horizontal
+color_gray
+color_blue
+min_component
+color_green
+rotate_cw
