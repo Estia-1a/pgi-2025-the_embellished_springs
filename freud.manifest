@@ -14,3 +14,6 @@ max_component
 rogner_milieu_haut
 max_pixel
 rogner_milieu_bas
+min_pixel
+rogner_haut
+rogner_bas
