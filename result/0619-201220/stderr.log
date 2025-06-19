@@ -1,0 +1,19 @@
+In file included from /home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:4:
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.h:1: error: unterminated #ifndef
+    1 | #ifndef FEATURES_H
+      | 
+gmake[2]: *** [CMakeFiles/freud.dir/build.make:93: CMakeFiles/freud.dir/src/features.c.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+In file included from /home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/main.c:8:
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.h:1: error: unterminated #ifndef
+    1 | #ifndef FEATURES_H
+      | 
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/main.c: In function ‘main’:
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/main.c:12:1: error: expected declaration or statement at end of input
+   12 | int main(int argc, char **argv) {
+      | ^~~
+gmake[2]: *** [CMakeFiles/freud.dir/build.make:107: CMakeFiles/freud.dir/src/main.c.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:87: CMakeFiles/freud.dir/all] Error 2
+gmake: *** [Makefile:136: all] Error 2
+
+The process '/usr/local/bin/cmake' failed with exit code 2
