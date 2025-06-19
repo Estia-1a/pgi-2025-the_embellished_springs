@@ -37,3 +37,7 @@ if ( strncmp( configuration.command, "color_invert", 12 ) == 0 ) {
 if ( strncmp( configuration.command, "color_gray_luminance", 20 ) == 0 ) { 
     color_gray_luminance(configuration.filenames[0]);
 }
+
+if ( strncmp( configuration.command, "mirror_vertical", 15 ) == 0 ) { 
+    mirror_vertical(configuration.filenames[0]);
+}
