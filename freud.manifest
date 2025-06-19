@@ -12,3 +12,5 @@ rotate_cw
 color_red
 max_component
 rogner_milieu_haut
+max_pixel
+rogner_milieu_bas
