@@ -61,3 +61,7 @@ if ( strncmp( configuration.command, "min_component", 13 ) == 0 ) {
 if ( strncmp( configuration.command, "color_green", 11 ) == 0 ) { 
     color_green(configuration.filenames[0]);
 }
+
+if ( strncmp( configuration.command, "rotate_cw", 9 ) == 0 ) { 
+    rotate_cw(configuration.filenames[0]);
+}

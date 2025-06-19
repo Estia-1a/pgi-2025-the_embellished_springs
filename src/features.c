@@ -216,3 +216,36 @@ void color_green(char* source_path){
         }
         write_image_data("image_out.bmp", data, width, height);
 }
+
+void rotate_cw(char *source_path) {
+    int width, height, nbChannels;
+    unsigned char *source_data;
+    unsigned char *target_data;
+
+    if (read_image_data(source_path, &source_data, &width, &height, &nbChannels)) {
+        target_data = (unsigned char *)malloc(width * height * nbChannels * sizeof(unsigned char));
+
+        int target_width = height;
+        int target_height = width;
+
+        int y, x;
+        for (y = 0; y < height; y++) {
+            for (x = 0; x < width; x++) {
+                int source_pixel_index = (y * width + x) * nbChannels;
+                int target_pixel_index = ((x * target_width) + (target_width - 1 - y)) * nbChannels;
+
+                target_data[target_pixel_index] = source_data[source_pixel_index];
+                target_data[target_pixel_index + 1] = source_data[source_pixel_index + 1];
+                target_data[target_pixel_index + 2] = source_data[source_pixel_index + 2];
+
+                if (nbChannels == 4) {
+                    target_data[target_pixel_index + 3] = source_data[source_pixel_index + 3];
+                }
+            }
+        }
+        write_image_data("image_out.bmp", target_data, target_width, target_height);
+
+        free(source_data);
+        free(target_data);
+    }
+}
