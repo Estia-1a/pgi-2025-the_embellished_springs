@@ -1,0 +1,103 @@
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c: In function ‘dimension’:
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:10:12: warning: implicit declaration of function ‘read_image_data’ [-Wimplicit-function-declaration]
+   10 |     data = read_image_data(source_path, &width, &height, &channel_count);
+      |            ^~~~~~~~~~~~~~~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:10:10: warning: assignment to ‘unsigned char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   10 |     data = read_image_data(source_path, &width, &height, &channel_count);
+      |          ^
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c: In function ‘color_desaturate’:
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:35:9: error: unknown type name ‘pixelRGB’
+   35 |         pixelRGB *pixel = (pixelRGB *)(data + i * channel_count);
+      |         ^~~~~~~~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:35:28: error: ‘pixelRGB’ undeclared (first use in this function); did you mean ‘pixel’?
+   35 |         pixelRGB *pixel = (pixelRGB *)(data + i * channel_count);
+      |                            ^~~~~~~~
+      |                            pixel
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:35:28: note: each undeclared identifier is reported only once for each function it appears in
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:35:38: error: expected expression before ‘)’ token
+   35 |         pixelRGB *pixel = (pixelRGB *)(data + i * channel_count);
+      |                                      ^
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:36:40: error: request for member ‘R’ in something not a structure or union
+   36 |         unsigned char min_value = pixel->R;
+      |                                        ^~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:37:18: error: request for member ‘G’ in something not a structure or union
+   37 |         if (pixel->G < min_value) {
+      |                  ^~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:38:30: error: request for member ‘G’ in something not a structure or union
+   38 |             min_value = pixel->G;
+      |                              ^~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:40:18: error: request for member ‘B’ in something not a structure or union
+   40 |         if (pixel->B < min_value) {
+      |                  ^~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:41:30: error: request for member ‘B’ in something not a structure or union
+   41 |             min_value = pixel->B;
+      |                              ^~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:43:40: error: request for member ‘R’ in something not a structure or union
+   43 |         unsigned char max_value = pixel->R;
+      |                                        ^~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:44:18: error: request for member ‘G’ in something not a structure or union
+   44 |         if (pixel->G > max_value) {
+      |                  ^~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:45:30: error: request for member ‘G’ in something not a structure or union
+   45 |             max_value = pixel->G;
+      |                              ^~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:47:18: error: request for member ‘B’ in something not a structure or union
+   47 |         if (pixel->B > max_value) {
+      |                  ^~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:48:30: error: request for member ‘B’ in something not a structure or union
+   48 |             max_value = pixel->B;
+      |                              ^~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.c:56:5: warning: implicit declaration of function ‘write_image_data’ [-Wimplicit-function-declaration]
+   56 |     write_image_data("image_out.bmp", new_data, width, height);
+      |     ^~~~~~~~~~~~~~~~
+In file included from /home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/main.c:8:
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.h: In function ‘color_desaturate’:
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.h:7:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘void’
+    7 | void mirror_vertical(char* source_path)
+      | ^~~~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/argsparse.c: In function ‘check_debug_mode’:
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.h:1: error: unterminated #ifndef
+    1 | #ifndef FEATURES_H
+      | 
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/argsparse.c:98:1: error: version control conflict marker in file
+   98 | <<<<<<< HEAD
+      | ^~~~~~~
+In file included from /home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/main.c:9:
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/utils.h:15:3: error: expected declaration specifiers before ‘pixelRGB’
+   15 | } pixelRGB ;
+      |   ^~~~~~~~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/argsparse.c: At top level:
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/argsparse.c:100:1: error: version control conflict marker in file
+  100 | =======
+      | ^~~~~~~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/argsparse.c:102:9: error: invalid suffix "f02f62d21cf4cd686c3520b029b886332763" on integer constant
+  102 | >>>>>>> 4549f02f62d21cf4cd686c3520b029b886332763
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/utils.h:17:1: error: unknown type name ‘pixelRGB’
+   17 | pixelRGB * get_pixel( unsigned char* data, const unsigned int width, const unsigned int height, const unsigned int n, const unsigned int x, const unsigned int y );
+      | ^~~~~~~~
+In file included from /home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/argsparse.h:7,
+                 from /home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/main.c:10:
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/configp.h:18:3: error: storage class specified for parameter ‘Config’
+   18 | } Config ;
+      |   ^~~~~~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/argsparse.h:9:46: error: expected declaration specifiers or ‘...’ before ‘Config’
+    9 | void parse_arguments( int argc, char **argv, Config * conf);
+      |                                              ^~~~~~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/argsparse.h:11:23: error: expected declaration specifiers or ‘...’ before ‘Config’
+   11 | void check_debug_mode(Config conf);
+      |                       ^~~~~~
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/main.c:12:33: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘{’ token
+   12 | int main(int argc, char **argv) {
+      |                                 ^
+/home/runner/work/pgi-2025-the_embellished_springs/pgi-2025-the_embellished_springs/src/features.h:5:6: error: old-style parameter declarations in prototyped function definition
+    5 | void color_desaturate(char *source_path)
+      |      ^~~~~~~~~~~~~~~~
+gmake[2]: *** [CMakeFiles/freud.dir/build.make:79: CMakeFiles/freud.dir/src/argsparse.c.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/freud.dir/build.make:107: CMakeFiles/freud.dir/src/main.c.o] Error 1
+gmake[2]: *** [CMakeFiles/freud.dir/build.make:93: CMakeFiles/freud.dir/src/features.c.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:87: CMakeFiles/freud.dir/all] Error 2
+gmake: *** [Makefile:136: all] Error 2
+
+The process '/usr/local/bin/cmake' failed with exit code 2
